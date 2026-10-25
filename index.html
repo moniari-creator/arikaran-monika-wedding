@@ -4,13 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arikaran &amp; Monika's Wedding Invitation</title>
+  <title>Arikaran & Monika's Wedding Invitation</title>
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script>
@@ -50,6 +57,10 @@
         radial-gradient(#d6c09a 0.6px, #FDFBF7 0.6px);
       background-size: 24px 24px;
       background-position: 0 0, 12px 12px;
+    }
+
+    .couple-name {
+      text-transform: capitalize;
     }
 
     .shimmer-gold {
@@ -98,9 +109,7 @@
       class="bg-white/90 backdrop-blur-md border border-wedding-gold/40 text-wedding-burgundy p-3 rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
     >
       <i class="fa-solid fa-wand-magic-sparkles text-sm text-wedding-gold"></i>
-      <span class="text-xs ml-1 font-serif hidden sm:inline text-wedding-burgundy font-semibold">
-        Blessings
-      </span>
+      <span class="text-xs ml-1 font-serif hidden sm:inline text-wedding-burgundy font-semibold">Blessings</span>
     </button>
   </div>
 
@@ -135,10 +144,11 @@
       </p>
     </header>
 
-    <!-- Couple Names: Capital First Letters and Larger Text -->
+    <!-- Couple Names -->
     <main class="w-full flex-grow flex flex-col items-center justify-center my-4">
       <div class="my-3 relative">
-        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1">
+
+        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
           Arikaran
         </h1>
 
@@ -148,7 +158,7 @@
           <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
         </div>
 
-        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1">
+        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
           Monika
         </h1>
       </div>
@@ -157,7 +167,7 @@
         Cordially invite you to share in their joy as they celebrate their union of love and step into a new journey together.
       </p>
 
-      <!-- Wedding Dates -->
+      <!-- Wedding Date -->
       <div class="inline-flex items-center gap-2 border-y border-wedding-gold/50 py-2.5 px-6 my-2 bg-wedding-roseBg/50 backdrop-blur-sm rounded-sm">
         <i class="fa-regular fa-calendar-check text-wedding-roseGold"></i>
         <span class="font-serif tracking-widest uppercase text-sm sm:text-base font-semibold text-wedding-burgundy">
@@ -172,6 +182,7 @@
         </h2>
 
         <div class="grid grid-cols-4 gap-2 sm:gap-3 max-w-sm mx-auto">
+
           <div class="bg-white/90 backdrop-blur rounded-2xl p-3 shadow-md border border-wedding-gold/20 flex flex-col items-center">
             <span id="days" class="font-serif text-2xl sm:text-3xl font-bold text-wedding-burgundy">00</span>
             <span class="text-[10px] uppercase tracking-wider text-gray-500 font-medium">Days</span>
@@ -191,11 +202,13 @@
             <span id="seconds" class="font-serif text-2xl sm:text-3xl font-bold text-wedding-burgundy">00</span>
             <span class="text-[10px] uppercase tracking-wider text-gray-500 font-medium">Secs</span>
           </div>
+
         </div>
       </div>
 
       <!-- Quick Action Buttons -->
       <div class="flex flex-wrap items-center justify-center gap-3 w-full max-w-sm mb-8">
+
         <a
           id="gCalLink"
           href="#"
@@ -214,10 +227,12 @@
           <i class="fa-solid fa-location-dot text-wedding-roseGold"></i>
           <span>View Venue</span>
         </a>
+
       </div>
 
       <!-- Celebration Schedule -->
       <section id="events" class="w-full pt-4 pb-8 space-y-5">
+
         <div class="flex items-center justify-center space-x-3 mb-2">
           <div class="h-[1px] w-8 bg-wedding-gold/40"></div>
           <h3 class="font-serif text-2xl text-wedding-burgundy font-bold">
@@ -226,16 +241,19 @@
           <div class="h-[1px] w-8 bg-wedding-gold/40"></div>
         </div>
 
-        <!-- FIRST: Reception -->
+        <!-- FIRST EVENT: Reception -->
         <div class="bg-white/95 rounded-2xl p-6 shadow-md border border-wedding-gold/25 relative overflow-hidden text-left transition hover:shadow-lg">
+
           <div class="absolute top-0 right-0 w-20 h-20 bg-wedding-roseBg rounded-bl-full pointer-events-none"></div>
 
           <div class="flex items-start gap-4">
+
             <div class="w-12 h-12 rounded-xl bg-wedding-roseBg flex-shrink-0 flex items-center justify-center border border-wedding-roseGold/30">
               <i class="fa-solid fa-champagne-glasses text-wedding-roseGold text-lg"></i>
             </div>
 
             <div class="flex-1">
+
               <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-wedding-gold/15 text-wedding-burgundy mb-1">
                 Main Function
               </span>
@@ -269,20 +287,24 @@
                   <span>Get Directions</span>
                 </a>
               </div>
+
             </div>
           </div>
         </div>
 
-        <!-- SECOND: Muhurtham -->
+        <!-- SECOND EVENT: Muhurtham -->
         <div class="bg-white/95 rounded-2xl p-6 shadow-md border border-wedding-gold/25 relative overflow-hidden text-left transition hover:shadow-lg">
+
           <div class="absolute top-0 right-0 w-20 h-20 bg-wedding-gold/10 rounded-bl-full pointer-events-none"></div>
 
           <div class="flex items-start gap-4">
+
             <div class="w-12 h-12 rounded-xl bg-wedding-roseBg flex-shrink-0 flex items-center justify-center border border-wedding-roseGold/30">
               <i class="fa-solid fa-ring text-wedding-roseGold text-lg"></i>
             </div>
 
             <div class="flex-1">
+
               <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-wedding-gold/15 text-wedding-burgundy mb-1">
                 Wedding Ceremony
               </span>
@@ -293,7 +315,7 @@
 
               <p class="text-xs text-gray-600 mt-1 flex items-center gap-1.5">
                 <i class="fa-regular fa-clock text-wedding-gold"></i>
-                <span>Sunday, November 15, 2026 | 05:00 AM – 06:00 AM</span>
+                <span>Sunday, November 15, 2026 | 05:00 AM - 06:00 AM</span>
               </p>
 
               <div class="mt-3 pt-3 border-t border-gray-100">
@@ -316,13 +338,16 @@
                   <span>Get Directions</span>
                 </a>
               </div>
+
             </div>
           </div>
         </div>
+
       </section>
 
       <!-- WhatsApp RSVP -->
       <section class="w-full bg-white/90 backdrop-blur rounded-2xl p-6 border border-wedding-gold/30 shadow-md mb-8">
+
         <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3">
           <i class="fa-brands fa-whatsapp text-2xl"></i>
         </div>
@@ -344,6 +369,7 @@
           <i class="fa-brands fa-whatsapp text-lg"></i>
           <span>RSVP on WhatsApp</span>
         </a>
+
       </section>
 
       <!-- Closing Message -->
@@ -356,50 +382,74 @@
           #ArikaranWedsMonika
         </p>
       </div>
+
     </main>
 
     <!-- Footer -->
     <footer class="pt-6 pb-2 text-[11px] text-gray-400">
       <p>Made with love for Arikaran &amp; Monika • November 14–15, 2026</p>
     </footer>
+
   </div>
 
-  <!-- Countdown, Calendar and Decorations -->
+  <!-- JavaScript -->
   <script>
-    // Reception countdown: November 14, 2026 at 6:00 PM IST.
-    const weddingDate = new Date('2026-11-14T18:00:00+05:30').getTime();
+    // Reception countdown: November 14, 2026, 6:00 PM IST.
+    const weddingDate = new Date(
+      '2026-11-14T18:00:00+05:30'
+    ).getTime();
 
     function updateCountdown() {
-      const difference = weddingDate - Date.now();
+      const now = Date.now();
+      const difference = weddingDate - now;
 
       if (difference <= 0) {
-        ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
-          document.getElementById(id).innerText = '00';
-        });
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
         return;
       }
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
       );
-      const minutes = Math.floor(
-        (difference % (1000 * 60 * 60)) / (1000 * 60)
-      );
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-      document.getElementById('days').innerText = String(days).padStart(2, '0');
-      document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-      document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (difference % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (difference % (1000 * 60)) / 1000
+      );
+
+      document.getElementById('days').innerText =
+        String(days).padStart(2, '0');
+
+      document.getElementById('hours').innerText =
+        String(hours).padStart(2, '0');
+
+      document.getElementById('minutes').innerText =
+        String(minutes).padStart(2, '0');
+
+      document.getElementById('seconds').innerText =
+        String(seconds).padStart(2, '0');
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Google Calendar event for the reception.
+    // Google Calendar link.
     function setupCalendarLink() {
-      const title = encodeURIComponent("Arikaran & Monika's Wedding Reception");
+      const title = encodeURIComponent(
+        "Arikaran & Monika's Wedding Reception"
+      );
 
       const details = encodeURIComponent(
         'Reception: November 14, 2026, from 6:00 PM onwards. ' +
@@ -412,7 +462,7 @@
         'Buhavana Bhavanam - Gobichettipalaya'
       );
 
-      // 6:00 PM IST to 10:00 PM IST.
+      // 6 PM IST to 10 PM IST.
       const dates = '20261114T123000Z/20261114T163000Z';
 
       const gcalUrl =
@@ -422,40 +472,62 @@
         '&details=' + details +
         '&location=' + location;
 
-      document.getElementById('gCalLink').href = gcalUrl;
+      const linkEl = document.getElementById('gCalLink');
+
+      if (linkEl) {
+        linkEl.href = gcalUrl;
+      }
     }
 
     setupCalendarLink();
 
-    // Confetti celebration.
+    // Confetti effect.
     function triggerBlessings() {
-      if (typeof confetti !== 'function') return;
+      if (typeof confetti !== 'function') {
+        return;
+      }
 
       confetti({
         particleCount: 75,
         spread: 60,
         origin: { y: 0.6 },
-        colors: ['#C5A059', '#B76E79', '#FFFFFF', '#E8D49E', '#5B1E31']
+        colors: [
+          '#C5A059',
+          '#B76E79',
+          '#FFFFFF',
+          '#E8D49E',
+          '#5B1E31'
+        ]
       });
     }
 
     // Floating flower petals.
     function createPetals() {
-      const container = document.createElement('div');
-      container.className =
-        'fixed inset-0 pointer-events-none overflow-hidden z-0';
-      document.body.appendChild(container);
+      const petalsContainer = document.createElement('div');
 
-      const symbols = ['🌸', '✨', '💐', '🌺'];
+      petalsContainer.className =
+        'fixed inset-0 pointer-events-none overflow-hidden z-0';
+
+      document.body.appendChild(petalsContainer);
+
+      const petalSymbols = ['🌸', '✨', '💐', '🌺'];
 
       for (let i = 0; i < 15; i++) {
         const petal = document.createElement('div');
+
         petal.className = 'petal text-xs sm:text-sm';
         petal.style.left = Math.random() * 95 + 'vw';
-        petal.style.animationDuration = (8 + Math.random() * 7) + 's';
-        petal.style.animationDelay = (Math.random() * 5) + 's';
-        petal.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        container.appendChild(petal);
+        petal.style.animationDuration =
+          (8 + Math.random() * 7) + 's';
+        petal.style.animationDelay =
+          (Math.random() * 5) + 's';
+
+        petal.innerText =
+          petalSymbols[
+            Math.floor(Math.random() * petalSymbols.length)
+          ];
+
+        petalsContainer.appendChild(petal);
       }
     }
 
@@ -464,5 +536,6 @@
       createPetals();
     });
   </script>
+
 </body>
 </html>
