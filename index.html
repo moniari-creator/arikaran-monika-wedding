@@ -50,6 +50,7 @@ body::before {
   z-index: -1;
 }
 
+/* MAIN INVITATION */
 .page {
   width: min(100% - 28px, 760px);
   margin: 24px auto 40px;
@@ -163,6 +164,7 @@ h1 {
   color: var(--muted);
 }
 
+/* COUNTDOWN */
 .countdown-title,
 .section-label {
   font-size: 10px;
@@ -201,6 +203,7 @@ h1 {
   color: var(--muted);
 }
 
+/* BUTTONS */
 .actions {
   display: flex;
   justify-content: center;
@@ -216,6 +219,7 @@ h1 {
   gap: 8px;
   padding: 13px 18px;
   text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -240,6 +244,7 @@ h1 {
   opacity: .88;
 }
 
+/* EVENTS */
 .section-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 34px;
@@ -303,6 +308,7 @@ h1 {
   color: var(--gold);
 }
 
+/* RSVP */
 .rsvp {
   margin: 38px auto 16px;
   padding: 25px 18px;
@@ -353,6 +359,141 @@ footer {
   margin-top: 25px;
 }
 
+/* OPEN NOW COVER SCREEN */
+.cover-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background:
+    radial-gradient(ellipse at 50% 20%, #762438 0, transparent 42%),
+    var(--wine);
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+.cover-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cover-frame {
+  width: min(100%, 560px);
+  min-height: min(82vh, 720px);
+  padding: 12px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: stretch;
+}
+
+.cover-card {
+  width: 100%;
+  border: 1px solid #c8a56a99;
+  background: var(--paper);
+  color: var(--wine);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(26px, 7vw, 60px) 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-card::before,
+.cover-card::after {
+  content: "❧";
+  position: absolute;
+  color: var(--gold);
+  opacity: .7;
+  font-size: 64px;
+}
+
+.cover-card::before {
+  top: 8px;
+  left: 12px;
+  transform: rotate(-35deg);
+}
+
+.cover-card::after {
+  bottom: 8px;
+  right: 12px;
+  transform: rotate(145deg);
+}
+
+.cover-small {
+  font-size: 9px;
+  letter-spacing: .28em;
+  line-height: 2;
+  text-transform: uppercase;
+  color: var(--wine2);
+}
+
+.cover-monogram {
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 26px 0 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  color: var(--gold);
+}
+
+.cover-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 76px);
+  line-height: 1.08;
+  margin: 14px 0;
+  color: var(--wine);
+}
+
+.cover-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  letter-spacing: .12em;
+  margin: 14px 0 28px;
+  color: #6d5558;
+}
+
+.open-button {
+  border: 1px solid var(--gold);
+  background: var(--wine);
+  color: var(--cream);
+  padding: 15px 27px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.open-button:hover {
+  transform: translateY(-3px);
+  background: var(--wine2);
+}
+
+.open-hint {
+  margin-top: 15px;
+  font-size: 9px;
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+
+body.invitation-open {
+  overflow: auto;
+}
+
 @media (max-width: 480px) {
   .page {
     width: calc(100% - 16px);
@@ -376,6 +517,10 @@ footer {
   .btn {
     width: 100%;
   }
+
+  .cover-frame {
+    min-height: 80vh;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -383,6 +528,8 @@ footer {
     scroll-behavior: auto;
   }
 
+  .cover-screen,
+  .open-button,
   * {
     transition: none !important;
   }
@@ -391,14 +538,61 @@ footer {
 </head>
 
 <body>
+
+<!-- FIRST SCREEN: OPEN NOW -->
+<section class="cover-screen" id="coverScreen"
+         aria-label="Wedding invitation cover">
+  <div class="cover-frame">
+    <div class="cover-card">
+
+      <div class="cover-small">
+        With the blessings of our families
+      </div>
+
+      <div class="cover-monogram" aria-hidden="true">
+        A <span style="color:#c8a56a">&amp;</span> M
+      </div>
+
+      <div class="cover-small">
+        Together with our families
+      </div>
+
+      <div class="cover-names">
+        Arikaran<br>
+        <span style="font-size:.55em;color:#c8a56a">&amp;</span><br>
+        Monika
+      </div>
+
+      <div class="cover-date">
+        NOVEMBER 14 &amp; 15, 2026
+      </div>
+
+      <button class="open-button" id="openInvitation" type="button">
+        <i class="fa-regular fa-envelope-open"></i>
+        Open Now
+      </button>
+
+      <div class="open-hint">
+        Tap to open your wedding invitation
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FULL INVITATION -->
 <div class="page">
 <main class="paper">
 
-  <div class="kicker">With the blessings of our families</div>
+  <div class="kicker">
+    With the blessings of our families
+  </div>
 
   <div class="om" aria-hidden="true">ॐ</div>
 
-  <div class="kicker">We joyfully invite you to celebrate</div>
+  <div class="kicker">
+    We joyfully invite you to celebrate
+  </div>
 
   <div class="ornament">✦ ❧ ✦</div>
 
@@ -416,21 +610,26 @@ footer {
     November 14 &amp; 15, 2026
   </div>
 
-  <div class="countdown-title">Counting down to the reception</div>
+  <div class="countdown-title">
+    Counting down to the reception
+  </div>
 
   <div class="countdown" aria-label="Countdown to reception">
     <div class="time">
       <strong id="days">00</strong>
       <span>Days</span>
     </div>
+
     <div class="time">
       <strong id="hours">00</strong>
       <span>Hours</span>
     </div>
+
     <div class="time">
       <strong id="minutes">00</strong>
       <span>Minutes</span>
     </div>
+
     <div class="time">
       <strong id="seconds">00</strong>
       <span>Seconds</span>
@@ -450,15 +649,24 @@ footer {
     </a>
   </div>
 
+  <!-- CELEBRATION SCHEDULE -->
   <div id="celebrations">
-    <div class="section-label">Join us for our special moments</div>
+
+    <div class="section-label">
+      Join us for our special moments
+    </div>
+
     <h2 class="section-title">The Celebrations</h2>
 
     <div class="events">
 
-      <!-- RECEPTION -->
+      <!-- RECEPTION FIRST -->
       <article class="event">
-        <div class="event-tag">Main function · Saturday</div>
+
+        <div class="event-tag">
+          Main function · Saturday
+        </div>
+
         <h3>Reception</h3>
 
         <p>
@@ -485,11 +693,16 @@ footer {
           <i class="fa-solid fa-diamond-turn-right"></i>
           Get directions
         </a>
+
       </article>
 
-      <!-- MUHURTHAM -->
+      <!-- MUHURTHAM SECOND -->
       <article class="event">
-        <div class="event-tag">Wedding ceremony · Sunday</div>
+
+        <div class="event-tag">
+          Wedding ceremony · Sunday
+        </div>
+
         <h3>Muhurtham</h3>
 
         <p>
@@ -516,14 +729,19 @@ footer {
           <i class="fa-solid fa-diamond-turn-right"></i>
           Get directions
         </a>
+
       </article>
 
     </div>
   </div>
 
-  <!-- RSVP / WHATSAPP -->
+  <!-- WHATSAPP RSVP -->
   <section class="rsvp">
-    <div class="section-label">Your presence is our present</div>
+
+    <div class="section-label">
+      Your presence is our present
+    </div>
+
     <h2>Will You Join Us?</h2>
 
     <p>
@@ -537,23 +755,40 @@ footer {
       <i class="fa-brands fa-whatsapp"></i>
       Send wishes on WhatsApp
     </a>
+
   </section>
 
   <div class="closing">
     With love, blessings and warm regards from both families
   </div>
 
-  <div class="hashtag">#ArikaranWedsMonika</div>
+  <div class="hashtag">
+    #ArikaranWedsMonika
+  </div>
 
   <div class="ornament">✦ ❧ ✦</div>
 
-  <footer>MADE WITH LOVE · NOVEMBER 14–15, 2026</footer>
+  <footer>
+    MADE WITH LOVE · NOVEMBER 14–15, 2026
+  </footer>
 
 </main>
 </div>
 
 <script>
-/* Reception countdown: Indian Standard Time */
+/* OPEN NOW BUTTON */
+const coverScreen = document.getElementById('coverScreen');
+
+document.getElementById('openInvitation').addEventListener('click', function () {
+  coverScreen.classList.add('is-hidden');
+  document.body.classList.add('invitation-open');
+
+  window.setTimeout(function () {
+    coverScreen.setAttribute('aria-hidden', 'true');
+  }, 850);
+});
+
+/* RECEPTION COUNTDOWN - INDIAN STANDARD TIME */
 const receptionDate =
   new Date('2026-11-14T18:00:00+05:30').getTime();
 
@@ -563,7 +798,7 @@ function updateCountdown() {
   const ids = ['days', 'hours', 'minutes', 'seconds'];
 
   if (diff <= 0) {
-    ids.forEach(id => {
+    ids.forEach(function (id) {
       document.getElementById(id).textContent = '00';
     });
     return;
@@ -576,7 +811,7 @@ function updateCountdown() {
     Math.floor((diff % 60000) / 1000)
   ];
 
-  ids.forEach((id, i) => {
+  ids.forEach(function (id, i) {
     document.getElementById(id).textContent =
       String(values[i]).padStart(2, '0');
   });
@@ -585,7 +820,7 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* Google Calendar event */
+/* GOOGLE CALENDAR BUTTON */
 const title = encodeURIComponent(
   "Arikaran & Monika's Wedding Reception"
 );
