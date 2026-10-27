@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -58,18 +58,16 @@
       background-position: 0 0, 12px 12px;
     }
 
+    /* Couple names: one single font, clear capital first letter */
     .couple-name {
-      /* Names are written with their capital letters directly in the HTML */
-      text-transform: none;
-    }
-
-    /* Clear, readable capital first letter (serif) */
-    .name-cap {
       font-family: "Cormorant Garamond", serif;
-      font-weight: 700;
-      font-size: 1.1em;
-      letter-spacing: 0.01em;
-      margin-right: 0.02em;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      text-transform: none;
+      /* extra padding so italic edges are not clipped by the gold gradient */
+      padding: 0.05em 0.2em;
     }
 
     .shimmer-gold {
@@ -178,18 +176,18 @@
     <main class="w-full flex-grow flex flex-col items-center justify-center my-4">
       <div class="my-3 relative">
 
-        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
-          <span class="name-cap">A</span>rikaran
+        <h1 class="text-6xl sm:text-7xl md:text-8xl shimmer-gold couple-name">
+          Arikaran
         </h1>
 
-        <div class="flex items-center justify-center my-1 space-x-3 text-wedding-roseGold">
+        <div class="flex items-center justify-center my-2 space-x-3 text-wedding-roseGold">
           <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
           <i class="fa-solid fa-heart text-sm animate-pulse"></i>
           <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
         </div>
 
-        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
-          <span class="name-cap">M</span>onika
+        <h1 class="text-6xl sm:text-7xl md:text-8xl shimmer-gold couple-name">
+          Monika
         </h1>
       </div>
 
