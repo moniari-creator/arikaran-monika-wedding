@@ -2,540 +2,734 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arikaran & Monika's Wedding Invitation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arikaran &amp; Monika | Wedding Invitation</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --wine: #4b0717;
+  --wine2: #6e1427;
+  --cream: #f8f1e8;
+  --paper: #fffaf3;
+  --gold: #c8a56a;
+  --ink: #321b20;
+  --muted: #876c6d;
+}
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+* { box-sizing: border-box; }
 
-  <!-- Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+html { scroll-behavior: smooth; }
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            wedding: {
-              cream: '#FDFBF7',
-              gold: '#C5A059',
-              goldLight: '#E8D49E',
-              roseGold: '#B76E79',
-              roseBg: '#FFF5F5',
-              burgundy: '#5B1E31',
-              charcoal: '#2D2A26'
-            }
-          },
-          fontFamily: {
-            script: ['"Great Vibes"', 'cursive'],
-            serif: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Montserrat"', 'sans-serif']
-          }
-        }
-      }
-    };
-  </script>
+body {
+  margin: 0;
+  background: var(--wine);
+  color: var(--cream);
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .15;
+  background:
+    radial-gradient(ellipse at 15% 10%, #9c4656 0, transparent 35%),
+    radial-gradient(ellipse at 90% 85%, #8e3447 0, transparent 32%);
+  z-index: -1;
+}
 
-    .bg-pattern {
-      background-color: #FDFBF7;
-      background-image:
-        radial-gradient(#d6c09a 0.6px, transparent 0.6px),
-        radial-gradient(#d6c09a 0.6px, #FDFBF7 0.6px);
-      background-size: 24px 24px;
-      background-position: 0 0, 12px 12px;
-    }
+.page {
+  width: min(100% - 28px, 760px);
+  margin: 24px auto 40px;
+  border: 1px solid #c8a56a88;
+  padding: 10px;
+}
 
-    .couple-name {
-      text-transform: capitalize;
-    }
+.paper {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  padding: clamp(30px, 7vw, 68px) clamp(18px, 6vw, 58px);
+  border: 1px solid var(--gold);
+}
 
-    .shimmer-gold {
-      background: linear-gradient(
-        135deg,
-        #a77c35 0%,
-        #ecd79b 50%,
-        #9a6d25 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.paper:before,
+.paper:after {
+  content: "❧";
+  position: absolute;
+  color: var(--gold);
+  font-size: 70px;
+  opacity: .65;
+  line-height: 1;
+}
 
-    .petal {
-      position: fixed;
-      top: -10%;
-      user-select: none;
-      pointer-events: none;
-      z-index: 9999;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
+.paper:before {
+  top: 10px;
+  left: 14px;
+  transform: rotate(-35deg);
+}
 
-    @keyframes fall {
-      0% {
-        transform: translateY(0vh) rotate(0deg) scale(0.8);
-        opacity: 0.9;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg) scale(1.1);
-        opacity: 0.1;
-      }
-    }
-  </style>
+.paper:after {
+  bottom: 10px;
+  right: 14px;
+  transform: rotate(145deg);
+}
+
+.kicker {
+  font-size: 10px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--wine2);
+  line-height: 2;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 22px;
+  letter-spacing: .25em;
+  margin: 18px 0;
+}
+
+/* Gold circle and Murugan Vel */
+.om {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  margin: 20px 0;
+}
+
+.vel-symbol {
+  display: block;
+  width: 24px;
+  height: 30px;
+  overflow: visible;
+}
+
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: clamp(58px, 12vw, 100px);
+  line-height: .95;
+  color: var(--wine);
+  margin: 15px 0 6px;
+}
+
+.amp {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.intro {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  line-height: 1.55;
+  max-width: 490px;
+  margin: 24px auto;
+  color: #63484b;
+}
+
+.date {
+  margin: 28px auto 10px;
+  border-top: 1px solid #c8a56a88;
+  border-bottom: 1px solid #c8a56a88;
+  padding: 16px 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 4vw, 28px);
+  letter-spacing: .12em;
+  color: var(--wine);
+}
+
+.date small {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-size: 9px;
+  letter-spacing: .28em;
+  margin-bottom: 7px;
+  color: var(--muted);
+}
+
+.countdown-title,
+.section-label {
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--wine2);
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px auto 30px;
+  flex-wrap: wrap;
+}
+
+.time {
+  min-width: 62px;
+  padding: 10px 8px;
+  border: 1px solid #c8a56a70;
+  background: #fffdf9;
+}
+
+.time strong {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--wine);
+}
+
+.time span {
+  font-size: 8px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0 38px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--wine);
+  color: var(--cream);
+  border: 1px solid var(--wine);
+}
+
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--wine);
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: .88;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--wine);
+  margin: 8px 0 22px;
+}
+
+.events {
+  display: grid;
+  gap: 14px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.event {
+  border: 1px solid #c8a56a88;
+  padding: 22px;
+  background: #fffdf9;
+  position: relative;
+}
+
+.event-tag {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--gold);
+}
+
+.event h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 29px;
+  font-weight: 500;
+  margin: 6px 0 12px;
+  color: var(--wine);
+}
+
+.event p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #6d5558;
+  margin: 6px 0;
+}
+
+.event .venue {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.event a {
+  color: var(--wine2);
+  font-size: 11px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 3px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.event a:hover { color: var(--gold); }
+
+.rsvp {
+  margin: 38px auto 16px;
+  padding: 25px 18px;
+  background: #f4e9df;
+  border: 1px solid #c8a56a88;
+}
+
+.rsvp h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--wine);
+  margin: 8px 0;
+}
+
+.rsvp p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #6d5558;
+}
+
+.wa {
+  background: #285c43;
+  color: white;
+  border-color: #285c43;
+}
+
+.closing {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-style: italic;
+  color: #6d5558;
+  line-height: 1.6;
+  margin-top: 30px;
+}
+
+.hashtag {
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
+  color: var(--wine);
+  margin-top: 8px;
+}
+
+footer {
+  font-size: 9px;
+  letter-spacing: .12em;
+  color: #8e7378;
+  margin-top: 25px;
+}
+
+/* Opening cover */
+.cover-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background:
+    radial-gradient(ellipse at 50% 20%, #762438 0, transparent 42%),
+    var(--wine);
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+.cover-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cover-frame {
+  width: min(100%, 560px);
+  min-height: min(82vh, 720px);
+  padding: 12px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: stretch;
+}
+
+.cover-card {
+  width: 100%;
+  border: 1px solid #c8a56a99;
+  background: var(--paper);
+  color: var(--wine);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(26px, 7vw, 60px) 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-card::before,
+.cover-card::after {
+  content: "❧";
+  position: absolute;
+  color: var(--gold);
+  opacity: .7;
+  font-size: 64px;
+}
+
+.cover-card::before {
+  top: 8px;
+  left: 12px;
+  transform: rotate(-35deg);
+}
+
+.cover-card::after {
+  bottom: 8px;
+  right: 12px;
+  transform: rotate(145deg);
+}
+
+.cover-small {
+  font-size: 9px;
+  letter-spacing: .28em;
+  line-height: 2;
+  text-transform: uppercase;
+  color: var(--wine2);
+}
+
+.cover-monogram {
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 26px 0 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  color: var(--gold);
+}
+
+.cover-names {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(48px, 10vw, 76px);
+  line-height: 1.08;
+  margin: 14px 0;
+  color: var(--wine);
+}
+
+.cover-date {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  letter-spacing: .12em;
+  margin: 14px 0 28px;
+  color: #6d5558;
+}
+
+.open-button {
+  border: 1px solid var(--gold);
+  background: var(--wine);
+  color: var(--cream);
+  padding: 15px 27px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.open-button:hover {
+  transform: translateY(-3px);
+  background: var(--wine2);
+}
+
+.open-hint {
+  margin-top: 15px;
+  font-size: 9px;
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+
+body.invitation-open { overflow: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-screen, .open-button { transition: none; }
+}
+
+@media (max-width: 480px) {
+  .page {
+    width: calc(100% - 16px);
+    margin: 8px auto 20px;
+    padding: 6px;
+  }
+
+  .paper:before,
+  .paper:after { font-size: 48px; }
+
+  .event { padding: 18px; }
+  .intro { font-size: 18px; }
+  .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
 </head>
 
-<body class="bg-pattern text-wedding-charcoal font-sans antialiased selection:bg-wedding-roseGold selection:text-white relative overflow-x-hidden">
+<body>
 
-  <!-- Blessings Button -->
-  <div class="fixed top-4 right-4 z-50 flex items-center space-x-2">
-    <button
-      id="confettiBtn"
-      onclick="triggerBlessings()"
-      title="Shower Blessings"
-      class="bg-white/90 backdrop-blur-md border border-wedding-gold/40 text-wedding-burgundy p-3 rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
-    >
-      <i class="fa-solid fa-wand-magic-sparkles text-sm text-wedding-gold"></i>
-      <span class="text-xs ml-1 font-serif hidden sm:inline text-wedding-burgundy font-semibold">Blessings</span>
-    </button>
+<!-- Opening screen -->
+<section class="cover-screen" id="coverScreen" aria-label="Wedding invitation cover">
+  <div class="cover-frame">
+    <div class="cover-card">
+      <div class="cover-small">With the blessings of our families</div>
+
+      <div class="cover-monogram" aria-hidden="true">
+        A <span style="color:#c8a56a">&amp;</span> M
+      </div>
+
+      <div class="cover-small">Together with our families</div>
+
+      <div class="cover-names">
+        Arikaran<br>
+        <span style="font-size:.55em;color:#c8a56a">&amp;</span><br>
+        Monika
+      </div>
+
+      <div class="cover-date">NOVEMBER 14 &amp; 15, 2026</div>
+
+      <button class="open-button" id="openInvitation" type="button">
+        <i class="fa-regular fa-envelope-open"></i>
+        Open Now
+      </button>
+
+      <div class="open-hint">Tap to open your wedding invitation</div>
+    </div>
   </div>
+</section>
 
-  <!-- Decorative Corners -->
-  <div class="absolute top-0 left-0 w-24 h-24 sm:w-36 sm:h-36 opacity-30 pointer-events-none">
-    <svg viewBox="0 0 100 100" class="fill-current text-wedding-gold">
-      <path d="M0,0 L100,0 C60,10 10,60 0,100 Z"></path>
+<div class="page">
+<main class="paper">
+
+  <div class="kicker">With the blessings of our families</div>
+
+  <!-- Lord Murugan's Vel symbol replaces Om -->
+  <div class="om" role="img" aria-label="Lord Murugan's Vel symbol">
+    <svg class="vel-symbol" viewBox="0 0 40 52"
+         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M20 2 C17 10 10 17 10 25 C10 32 14 36 20 39 C26 36 30 32 30 25 C30 17 23 10 20 2 Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.1"
+        stroke-linejoin="round"/>
+      <path
+        d="M20 8 L20 48 M13 42 L20 48 L27 42"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.1"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
     </svg>
   </div>
 
-  <div class="absolute top-0 right-0 w-24 h-24 sm:w-36 sm:h-36 opacity-30 pointer-events-none scale-x-[-1]">
-    <svg viewBox="0 0 100 100" class="fill-current text-wedding-gold">
-      <path d="M0,0 L100,0 C60,10 10,60 0,100 Z"></path>
-    </svg>
+  <div class="kicker">We joyfully invite you to celebrate</div>
+  <div class="ornament">✦ ❧ ✦</div>
+
+  <h1>Arikaran</h1>
+  <div class="amp">&amp;</div>
+  <h1>Monika</h1>
+
+  <p class="intro">
+    Two hearts, one beautiful journey. Please join us as we begin our forever together.
+  </p>
+
+  <div class="date">
+    <small>Wedding celebrations</small>
+    November 14 &amp; 15, 2026
   </div>
 
-  <!-- Main Container -->
-  <div class="max-w-xl mx-auto min-h-screen px-4 py-8 flex flex-col justify-between items-center text-center">
+  <div class="countdown-title">Counting down to the reception</div>
 
-    <!-- Header -->
-    <header class="pt-6 pb-2 w-full flex flex-col items-center">
-      <div class="w-14 h-14 rounded-full border border-wedding-gold/60 flex items-center justify-center p-1 mb-4 shadow-sm bg-white/70 backdrop-blur">
-        <i class="fa-solid fa-om text-xl text-wedding-gold"></i>
-      </div>
-
-      <p class="text-xs uppercase tracking-[0.3em] text-wedding-gold font-medium mb-1">
-        || Anbin Aarambam ||
-      </p>
-
-      <p class="font-serif italic text-base sm:text-lg text-wedding-burgundy/80 max-w-sm mx-auto">
-        Together with their families &amp; joyous hearts
-      </p>
-    </header>
-
-    <!-- Couple Names -->
-    <main class="w-full flex-grow flex flex-col items-center justify-center my-4">
-      <div class="my-3 relative">
-
-        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
-          Arikaran
-        </h1>
-
-        <div class="flex items-center justify-center my-1 space-x-3 text-wedding-roseGold">
-          <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
-          <i class="fa-solid fa-heart text-sm animate-pulse"></i>
-          <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
-        </div>
-
-        <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
-          Monika
-        </h1>
-      </div>
-
-      <p class="font-serif text-wedding-charcoal/90 text-sm sm:text-base max-w-xs sm:max-w-md mx-auto leading-relaxed mt-2 mb-6">
-        Cordially invite you to share in their joy as they celebrate their union of love and step into a new journey together.
-      </p>
-
-      <!-- Wedding Date -->
-      <div class="inline-flex items-center gap-2 border-y border-wedding-gold/50 py-2.5 px-6 my-2 bg-wedding-roseBg/50 backdrop-blur-sm rounded-sm">
-        <i class="fa-regular fa-calendar-check text-wedding-roseGold"></i>
-        <span class="font-serif tracking-widest uppercase text-sm sm:text-base font-semibold text-wedding-burgundy">
-          November 14 &amp; 15, 2026
-        </span>
-      </div>
-
-      <!-- Countdown -->
-      <div class="w-full mt-8 mb-6">
-        <h2 class="text-xs uppercase tracking-widest text-wedding-gold font-semibold mb-4">
-          Counting Down To The Reception
-        </h2>
-
-        <div class="grid grid-cols-4 gap-2 sm:gap-3 max-w-sm mx-auto">
-
-          <div class="bg-white/90 backdrop-blur rounded-2xl p-3 shadow-md border border-wedding-gold/20 flex flex-col items-center">
-            <span id="days" class="font-serif text-2xl sm:text-3xl font-bold text-wedding-burgundy">00</span>
-            <span class="text-[10px] uppercase tracking-wider text-gray-500 font-medium">Days</span>
-          </div>
-
-          <div class="bg-white/90 backdrop-blur rounded-2xl p-3 shadow-md border border-wedding-gold/20 flex flex-col items-center">
-            <span id="hours" class="font-serif text-2xl sm:text-3xl font-bold text-wedding-burgundy">00</span>
-            <span class="text-[10px] uppercase tracking-wider text-gray-500 font-medium">Hours</span>
-          </div>
-
-          <div class="bg-white/90 backdrop-blur rounded-2xl p-3 shadow-md border border-wedding-gold/20 flex flex-col items-center">
-            <span id="minutes" class="font-serif text-2xl sm:text-3xl font-bold text-wedding-burgundy">00</span>
-            <span class="text-[10px] uppercase tracking-wider text-gray-500 font-medium">Mins</span>
-          </div>
-
-          <div class="bg-white/90 backdrop-blur rounded-2xl p-3 shadow-md border border-wedding-gold/20 flex flex-col items-center">
-            <span id="seconds" class="font-serif text-2xl sm:text-3xl font-bold text-wedding-burgundy">00</span>
-            <span class="text-[10px] uppercase tracking-wider text-gray-500 font-medium">Secs</span>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Quick Action Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-3 w-full max-w-sm mb-8">
-
-        <a
-          id="gCalLink"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-3 bg-wedding-burgundy text-white rounded-xl text-xs sm:text-sm font-medium tracking-wide shadow-md hover:bg-wedding-burgundy/90 transition-transform active:scale-95"
-        >
-          <i class="fa-solid fa-calendar-plus text-wedding-goldLight"></i>
-          <span>Save to Calendar</span>
-        </a>
-
-        <a
-          href="#events"
-          class="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-3 bg-white border border-wedding-gold/60 text-wedding-burgundy rounded-xl text-xs sm:text-sm font-medium tracking-wide shadow-sm hover:bg-wedding-gold/10 transition-transform active:scale-95"
-        >
-          <i class="fa-solid fa-location-dot text-wedding-roseGold"></i>
-          <span>View Venue</span>
-        </a>
-
-      </div>
-
-      <!-- Celebration Schedule -->
-      <section id="events" class="w-full pt-4 pb-8 space-y-5">
-
-        <div class="flex items-center justify-center space-x-3 mb-2">
-          <div class="h-[1px] w-8 bg-wedding-gold/40"></div>
-          <h3 class="font-serif text-2xl text-wedding-burgundy font-bold">
-            Celebration Schedule
-          </h3>
-          <div class="h-[1px] w-8 bg-wedding-gold/40"></div>
-        </div>
-
-        <!-- FIRST EVENT: Reception -->
-        <div class="bg-white/95 rounded-2xl p-6 shadow-md border border-wedding-gold/25 relative overflow-hidden text-left transition hover:shadow-lg">
-
-          <div class="absolute top-0 right-0 w-20 h-20 bg-wedding-roseBg rounded-bl-full pointer-events-none"></div>
-
-          <div class="flex items-start gap-4">
-
-            <div class="w-12 h-12 rounded-xl bg-wedding-roseBg flex-shrink-0 flex items-center justify-center border border-wedding-roseGold/30">
-              <i class="fa-solid fa-champagne-glasses text-wedding-roseGold text-lg"></i>
-            </div>
-
-            <div class="flex-1">
-
-              <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-wedding-gold/15 text-wedding-burgundy mb-1">
-                Main Function
-              </span>
-
-              <h4 class="font-serif text-xl font-bold text-wedding-burgundy">
-                Reception
-              </h4>
-
-              <p class="text-xs text-gray-600 mt-1 flex items-center gap-1.5">
-                <i class="fa-regular fa-clock text-wedding-gold"></i>
-                <span>Saturday, November 14, 2026 | 06:00 PM Onwards</span>
-              </p>
-
-              <div class="mt-3 pt-3 border-t border-gray-100">
-                <p class="text-xs font-semibold text-wedding-charcoal">
-                  Buhavana Bhavanam - Gobichettipalaya
-                </p>
-                <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">
-                  We warmly invite you to join us for an evening of joy, love and celebration.
-                </p>
-              </div>
-
-              <div class="mt-4 flex flex-wrap gap-2">
-                <a
-                  href="https://maps.app.goo.gl/wEozck8r269aZPC89"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-wedding-gold/10 text-wedding-burgundy hover:bg-wedding-gold/20 transition"
-                >
-                  <i class="fa-solid fa-diamond-turn-right text-wedding-gold"></i>
-                  <span>Get Directions</span>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- SECOND EVENT: Muhurtham -->
-        <div class="bg-white/95 rounded-2xl p-6 shadow-md border border-wedding-gold/25 relative overflow-hidden text-left transition hover:shadow-lg">
-
-          <div class="absolute top-0 right-0 w-20 h-20 bg-wedding-gold/10 rounded-bl-full pointer-events-none"></div>
-
-          <div class="flex items-start gap-4">
-
-            <div class="w-12 h-12 rounded-xl bg-wedding-roseBg flex-shrink-0 flex items-center justify-center border border-wedding-roseGold/30">
-              <i class="fa-solid fa-ring text-wedding-roseGold text-lg"></i>
-            </div>
-
-            <div class="flex-1">
-
-              <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-wedding-gold/15 text-wedding-burgundy mb-1">
-                Wedding Ceremony
-              </span>
-
-              <h4 class="font-serif text-xl font-bold text-wedding-burgundy">
-                Muhurtham
-              </h4>
-
-              <p class="text-xs text-gray-600 mt-1 flex items-center gap-1.5">
-                <i class="fa-regular fa-clock text-wedding-gold"></i>
-                <span>Sunday, November 15, 2026 | 05:00 AM - 06:00 AM</span>
-              </p>
-
-              <div class="mt-3 pt-3 border-t border-gray-100">
-                <p class="text-xs font-semibold text-wedding-charcoal">
-                  Buhavana Bhavanam - Gobichettipalaya
-                </p>
-                <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">
-                  Join us to bless the couple as they begin their married life together.
-                </p>
-              </div>
-
-              <div class="mt-4 flex flex-wrap gap-2">
-                <a
-                  href="https://maps.app.goo.gl/wEozck8r269aZPC89"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-wedding-gold/10 text-wedding-burgundy hover:bg-wedding-gold/20 transition"
-                >
-                  <i class="fa-solid fa-diamond-turn-right text-wedding-gold"></i>
-                  <span>Get Directions</span>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- WhatsApp RSVP -->
-      <section class="w-full bg-white/90 backdrop-blur rounded-2xl p-6 border border-wedding-gold/30 shadow-md mb-8">
-
-        <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3">
-          <i class="fa-brands fa-whatsapp text-2xl"></i>
-        </div>
-
-        <h3 class="font-serif text-xl font-bold text-wedding-burgundy mb-1">
-          Will You Be Joining Us?
-        </h3>
-
-        <p class="text-xs text-gray-600 max-w-xs mx-auto mb-5 leading-relaxed">
-          Your presence and blessings mean the world to us. Tap below to send your confirmation or wishes via WhatsApp!
-        </p>
-
-        <a
-          href="https://wa.me/?text=Hi%20Arikaran%20%26%20Monika!%20Heartiest%20congratulations%20on%20your%20wedding!%20I%20will%20be%20delighted%20to%20attend.%20Wishing%20you%20both%20a%20lifetime%20of%20happiness!"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 w-full max-w-xs py-3.5 px-6 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-xl text-sm shadow-md transition-all active:scale-95"
-        >
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-          <span>RSVP on WhatsApp</span>
-        </a>
-
-      </section>
-
-      <!-- Closing Message -->
-      <div class="text-center py-4">
-        <p class="font-serif italic text-wedding-burgundy text-lg sm:text-xl">
-          "With love, blessings, and warm regards from both families"
-        </p>
-
-        <p class="font-script text-3xl sm:text-4xl text-wedding-gold mt-2">
-          #ArikaranWedsMonika
-        </p>
-      </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="pt-6 pb-2 text-[11px] text-gray-400">
-      <p>Made with love for Arikaran &amp; Monika • November 14–15, 2026</p>
-    </footer>
-
+  <div class="countdown" aria-label="Countdown to reception">
+    <div class="time"><strong id="days">00</strong><span>Days</span></div>
+    <div class="time"><strong id="hours">00</strong><span>Hours</span></div>
+    <div class="time"><strong id="minutes">00</strong><span>Minutes</span></div>
+    <div class="time"><strong id="seconds">00</strong><span>Seconds</span></div>
   </div>
 
-  <!-- JavaScript -->
-  <script>
-    // Reception countdown: November 14, 2026, 6:00 PM IST.
-    const weddingDate = new Date(
-      '2026-11-14T18:00:00+05:30'
-    ).getTime();
+  <div class="actions">
+    <a class="btn btn-primary" id="gCalLink" href="#" target="_blank" rel="noopener">
+      <i class="fa-regular fa-calendar"></i> Save the date
+    </a>
+    <a class="btn btn-outline" href="#celebrations">
+      <i class="fa-solid fa-location-dot"></i> Event details
+    </a>
+  </div>
 
-    function updateCountdown() {
-      const now = Date.now();
-      const difference = weddingDate - now;
+  <div id="celebrations">
+    <div class="section-label">Join us for our special moments</div>
+    <h2 class="section-title">The Celebrations</h2>
 
-      if (difference <= 0) {
-        document.getElementById('days').innerText = '00';
-        document.getElementById('hours').innerText = '00';
-        document.getElementById('minutes').innerText = '00';
-        document.getElementById('seconds').innerText = '00';
-        return;
-      }
+    <div class="events">
+      <article class="event">
+        <div class="event-tag">Main function · Saturday</div>
+        <h3>Reception</h3>
+        <p><i class="fa-regular fa-calendar"></i> November 14, 2026</p>
+        <p><i class="fa-regular fa-clock"></i> 6:00 PM onwards</p>
+        <p class="venue">Buhavana Bhavanam - Gobichettipalaya</p>
+        <p>
+          An evening of joy, love and celebration. Your presence will make our day even more special.
+        </p>
+        <a href="https://maps.app.goo.gl/wEozck8r269aZPC89"
+           target="_blank" rel="noopener">
+          <i class="fa-solid fa-diamond-turn-right"></i> Get directions
+        </a>
+      </article>
 
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
+      <article class="event">
+        <div class="event-tag">Wedding ceremony · Sunday</div>
+        <h3>Muhurtham</h3>
+        <p><i class="fa-regular fa-calendar"></i> November 15, 2026</p>
+        <p><i class="fa-regular fa-clock"></i> 5:00 AM – 6:00 AM</p>
+        <p class="venue">Buhavana Bhavanam - Gobichettipalaya</p>
+        <p>
+          Join us to bless the beginning of our married life and share this auspicious moment with us.
+        </p>
+        <a href="https://maps.app.goo.gl/wEozck8r269aZPC89"
+           target="_blank" rel="noopener">
+          <i class="fa-solid fa-diamond-turn-right"></i> Get directions
+        </a>
+      </article>
+    </div>
+  </div>
 
-      const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
+  <section class="rsvp">
+    <div class="section-label">Your presence is our present</div>
+    <h2>Will You Join Us?</h2>
+    <p>
+      We would be delighted to celebrate these special moments with you.
+      Send us your wishes or confirmation on WhatsApp.
+    </p>
+    <a class="btn wa"
+       href="https://wa.me/?text=Congratulations%20Arikaran%20%26%20Monika!%20Wishing%20you%20both%20a%20lifetime%20of%20love%20and%20happiness."
+       target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp"></i> Send wishes on WhatsApp
+    </a>
+  </section>
 
-      const minutes = Math.floor(
-        (difference % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
+  <div class="closing">
+    With love, blessings and warm regards from both families
+  </div>
 
-      const seconds = Math.floor(
-        (difference % (1000 * 60)) / 1000
-      );
+  <div class="hashtag">#ArikaranWedsMonika</div>
+  <div class="ornament">✦ ❧ ✦</div>
+  <footer>MADE WITH LOVE · NOVEMBER 14–15, 2026</footer>
 
-      document.getElementById('days').innerText =
-        String(days).padStart(2, '0');
+</main>
+</div>
 
-      document.getElementById('hours').innerText =
-        String(hours).padStart(2, '0');
+<script>
+/* Open invitation from the welcome cover */
+const coverScreen = document.getElementById('coverScreen');
 
-      document.getElementById('minutes').innerText =
-        String(minutes).padStart(2, '0');
+document.getElementById('openInvitation').addEventListener('click', function () {
+  coverScreen.classList.add('is-hidden');
+  document.body.classList.add('invitation-open');
 
-      document.getElementById('seconds').innerText =
-        String(seconds).padStart(2, '0');
-    }
+  window.setTimeout(function () {
+    coverScreen.setAttribute('aria-hidden', 'true');
+  }, 850);
+});
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+/* Countdown to reception */
+const receptionDate =
+  new Date('2026-11-14T18:00:00+05:30').getTime();
 
-    // Google Calendar link.
-    function setupCalendarLink() {
-      const title = encodeURIComponent(
-        "Arikaran & Monika's Wedding Reception"
-      );
+function updateCountdown() {
+  const diff = receptionDate - Date.now();
+  const ids = ['days', 'hours', 'minutes', 'seconds'];
 
-      const details = encodeURIComponent(
-        'Reception: November 14, 2026, from 6:00 PM onwards. ' +
-        'Muhurtham: November 15, 2026, from 5:00 AM to 6:00 AM. ' +
-        'Venue: Buhavana Bhavanam - Gobichettipalaya. ' +
-        'Map: https://maps.app.goo.gl/wEozck8r269aZPC89'
-      );
-
-      const location = encodeURIComponent(
-        'Buhavana Bhavanam - Gobichettipalaya'
-      );
-
-      // 6 PM IST to 10 PM IST.
-      const dates = '20261114T123000Z/20261114T163000Z';
-
-      const gcalUrl =
-        'https://calendar.google.com/calendar/render?action=TEMPLATE' +
-        '&text=' + title +
-        '&dates=' + dates +
-        '&details=' + details +
-        '&location=' + location;
-
-      const linkEl = document.getElementById('gCalLink');
-
-      if (linkEl) {
-        linkEl.href = gcalUrl;
-      }
-    }
-
-    setupCalendarLink();
-
-    // Confetti effect.
-    function triggerBlessings() {
-      if (typeof confetti !== 'function') {
-        return;
-      }
-
-      confetti({
-        particleCount: 75,
-        spread: 60,
-        origin: { y: 0.6 },
-        colors: [
-          '#C5A059',
-          '#B76E79',
-          '#FFFFFF',
-          '#E8D49E',
-          '#5B1E31'
-        ]
-      });
-    }
-
-    // Floating flower petals.
-    function createPetals() {
-      const petalsContainer = document.createElement('div');
-
-      petalsContainer.className =
-        'fixed inset-0 pointer-events-none overflow-hidden z-0';
-
-      document.body.appendChild(petalsContainer);
-
-      const petalSymbols = ['🌸', '✨', '💐', '🌺'];
-
-      for (let i = 0; i < 15; i++) {
-        const petal = document.createElement('div');
-
-        petal.className = 'petal text-xs sm:text-sm';
-        petal.style.left = Math.random() * 95 + 'vw';
-        petal.style.animationDuration =
-          (8 + Math.random() * 7) + 's';
-        petal.style.animationDelay =
-          (Math.random() * 5) + 's';
-
-        petal.innerText =
-          petalSymbols[
-            Math.floor(Math.random() * petalSymbols.length)
-          ];
-
-        petalsContainer.appendChild(petal);
-      }
-    }
-
-    window.addEventListener('load', () => {
-      setTimeout(triggerBlessings, 1000);
-      createPetals();
+  if (diff <= 0) {
+    ids.forEach(id => {
+      document.getElementById(id).textContent = '00';
     });
-  </script>
+    return;
+  }
+
+  const values = [
+    Math.floor(diff / 86400000),
+    Math.floor((diff % 86400000) / 3600000),
+    Math.floor((diff % 3600000) / 60000),
+    Math.floor((diff % 60000) / 1000)
+  ];
+
+  ids.forEach((id, i) => {
+    document.getElementById(id).textContent =
+      String(values[i]).padStart(2, '0');
+  });
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* Google Calendar event */
+const title = encodeURIComponent("Arikaran & Monika's Wedding Reception");
+
+const details = encodeURIComponent(
+  'Reception: November 14, 2026, from 6:00 PM onwards. ' +
+  'Muhurtham: November 15, 2026, from 5:00 AM to 6:00 AM. ' +
+  'Venue: Buhavana Bhavanam - Gobichettipalaya. ' +
+  'Map: https://maps.app.goo.gl/wEozck8r269aZPC89'
+);
+
+const location = encodeURIComponent(
+  'Buhavana Bhavanam - Gobichettipalaya'
+);
+
+document.getElementById('gCalLink').href =
+  'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+  '&text=' + title +
+  '&dates=20261114T123000Z/20261114T163000Z' +
+  '&details=' + details +
+  '&location=' + location;
+</script>
 
 </body>
 </html>
