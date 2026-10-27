@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +59,17 @@
     }
 
     .couple-name {
-      text-transform: capitalize;
+      /* Names are written with their capital letters directly in the HTML */
+      text-transform: none;
+    }
+
+    /* Clear, readable capital first letter (serif) */
+    .name-cap {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 1.1em;
+      letter-spacing: 0.01em;
+      margin-right: 0.02em;
     }
 
     .shimmer-gold {
@@ -71,6 +80,7 @@
         #9a6d25 100%
       );
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -149,7 +159,7 @@
       <div class="my-3 relative">
 
         <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
-          Arikaran
+          <span class="name-cap">A</span>rikaran
         </h1>
 
         <div class="flex items-center justify-center my-1 space-x-3 text-wedding-roseGold">
@@ -159,7 +169,7 @@
         </div>
 
         <h1 class="font-script text-6xl sm:text-7xl md:text-8xl shimmer-gold py-1 couple-name">
-          Monika
+          <span class="name-cap">M</span>onika
         </h1>
       </div>
 
